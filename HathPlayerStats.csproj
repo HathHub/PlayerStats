@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>HathDiscordStatus</AssemblyName>
+    <AssemblyName>HathPlayerStats</AssemblyName>
     <TargetFramework>net461</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>openmod openmod-plugin unturned</PackageTags>
-    <RootNamespace>HathDiscordStatus</RootNamespace>
+    <RootNamespace>HathPlayerStats</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateNugetPackage>true</GenerateNugetPackage>
     <Product>Virtual Garage</Product>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenMod.Unturned" Version="3.5.0+7527c861" />
+    <PackageReference Include="OpenMod.Unturned" Version="3.5.2" />
     <PackageReference Include="Legacy2CPSWorkaround" Version="1.0.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
@@ -27,8 +27,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ShimmyMySherbet.DiscordWebhook" Version="2.0.0" />
-    <PackageReference Include="ShimmyMySherbet.MySQL.EF" Version="1.8.8" />
+    <PackageReference Include="ShimmyMySherbet.MySQL.EF" Version="1.8.9-beta" />
     <PackageReference Include="Ubiety.Dns.Core" Version="4.2.2" />
   </ItemGroup>
 

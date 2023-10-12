@@ -1,4 +1,9 @@
-# See https://openmod.github.io/openmod-docs/devdoc/concepts/configuration.html
-# You can delete this file if you do not need a configuration
+# See https://github.com/HathHub/PlayerStats
 Database:
-    connectionString: ""    
+    connectionString: "Server=localhost;Port=3306;Database=dbname;User=username;Password=password;"
+Messages:
+    Stats: "[Stats for {PlayerName} #{Position}]\n Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}\n Messages: {Messages} Zombies: {Zombies} Megas: {MegaZombies}\nFish: {Fish} Animals {Animals} Harvests: {Harvests} Resources {Resources}"
+    RankingHeader: "<b>[Top 5 players]</b>"
+    Ranking: "#{Position} {PlayerName}: Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}" 
+Stats:
+    sortBy: "Kills"
