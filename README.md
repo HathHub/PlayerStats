@@ -1,7 +1,7 @@
 # PlayerStats
 PlayerStats is a plugin for OpenMod. It enriches your server by saving and displaying player statistics.  a range of in-game performance metrics, and other pertinent data.
 # Configuration
-```yaml
+```ruby
 # See https://github.com/HathHub/PlayerStats
 Database:
     connectionString: "Server=localhost;Port=3306;Database=dbname;User=username;Password=password;"
