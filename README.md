@@ -1,7 +1,7 @@
 # PlayerStats
 PlayerStats is a plugin for OpenMod. It enriches your server by saving and displaying player statistics.  a range of in-game performance metrics, and other pertinent data.
 # Downloading/Updating
-Run on console `openmod install Hath.PlayerStats` after [installing OpenMod]([https://github.com/HathHub/PlayerStats](https://openmod.github.io/openmod-docs/userdoc/installation/unturned.html)).
+Run on console `openmod install Hath.PlayerStats` after [installing OpenMod](https://openmod.github.io/openmod-docs/userdoc/installation/unturned.html)
 # Configuration
 ```ruby
 # See https://github.com/HathHub/PlayerStats
