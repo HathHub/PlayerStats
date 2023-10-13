@@ -89,7 +89,7 @@ namespace PlayerStats
             if (Client.Connect(out var msg))
             {
                 m_Logger.LogInformation("Succesfully connected to database!");
-                await Client.CreateTableIfNotExistsAsync<StatsDB>("HathPlayerStats");
+                await Client.CreateTableIfNotExistsAsync<StatsDB>(m_Configuration["Database:TableName"]);
             }
             else
             {

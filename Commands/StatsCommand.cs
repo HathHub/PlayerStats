@@ -19,6 +19,8 @@ using SDG.Unturned;
 using Microsoft.Extensions.Configuration;
 using NuGet.Protocol;
 using SmartFormat;
+using static UnityEngine.Random;
+using Cysharp.Threading.Tasks;
 
 namespace PlayerStats.Commands
 {
@@ -44,10 +46,10 @@ namespace PlayerStats.Commands
         }
         protected override async Task OnExecuteAsync()
         {
-            StatsDBRanked stats = await Plugin.Client!.QuerySingleAsync<StatsDBRanked>("SELECT *, ROW_NUMBER() OVER (ORDER BY 'Kills' DESC) AS 'Rank' FROM HathPlayerStats WHERE PlayerID = @0 ORDER BY Kills DESC", Context.Actor.Id);
+            await UniTask.SwitchToThreadPool();
+            StatsDBRanked stats = await Plugin.Client!.QuerySingleAsync<StatsDBRanked>("SELECT *, ROW_NUMBER() OVER (ORDER BY 'Kills' DESC) AS 'Rank' FROM HathPlayerStats WHERE PlayerID = @0 ORDER BY @1 DESC", Context.Actor.Id, m_Configuration["Stats:SortBy"]);
             if (stats is null) throw new UserFriendlyException("Stats couldnt be get!");
             string message = m_Configuration["Messages:Stats"];
-            m_Logger.LogInformation(stats.ToJson().ToString());
             var result = Smart.Format(message, new
             {
                 PlayerName = stats.PlayerName,
@@ -63,7 +65,7 @@ namespace PlayerStats.Commands
                 Fish = stats.Fish,
                 Animals = stats.Animals,
                 Position = stats.Rank,
-                Accuracy = (stats.Headshots / stats.Kills * 100)
+                Accuracy = (stats.Headshots == 0 || stats.Kills == 0) ? "0.0" : ((double)stats.Headshots / stats.Kills * 100).ToString("F2")
             });
             await Context.Actor.PrintMessageAsync(result);
         }

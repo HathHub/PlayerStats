@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <AssemblyName>HathPlayerStats</AssemblyName>
+	<PackageId>Hath.PlayerStats</PackageId>
+	<PackageDescription>Enriches your server by saving and displaying player statistics. a range of in-game performance metrics, and other pertinent data.</PackageDescription>
     <TargetFramework>net461</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>openmod openmod-plugin unturned</PackageTags>
@@ -9,11 +11,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateNugetPackage>true</GenerateNugetPackage>
     <Product>Virtual Garage</Product>
+    <PackageAuthor>Hath</PackageAuthor>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>nullable</WarningsAsErrors>
     <NoWarn>$(NoWarn);NU1701;NU1702;CS0436</NoWarn>
     <Version>0.1.0</Version>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <GenerateNugetPackage>true</GenerateNugetPackage>
     <InformationalVersion>0.1.0</InformationalVersion>
     <PackageVersion>0.1.0</PackageVersion>
   </PropertyGroup>

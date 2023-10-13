@@ -20,6 +20,7 @@ using Microsoft.Extensions.Configuration;
 using NuGet.Protocol;
 using SmartFormat;
 using System.Text;
+using Cysharp.Threading.Tasks;
 
 namespace PlayerStats.Commands
 {
@@ -45,12 +46,12 @@ namespace PlayerStats.Commands
         }
         protected override async Task OnExecuteAsync()
         {
-            List<StatsDBRanked> stats = await Plugin.Client!.QueryAsync<StatsDBRanked>("SELECT *, ROW_NUMBER() OVER (ORDER BY 'Kills' DESC) AS 'Rank' FROM HathPlayerStats ORDER BY 'Kills' DESC LIMIT 5");
+            await UniTask.SwitchToThreadPool();
+            List<StatsDBRanked> stats = await Plugin.Client!.QueryAsync<StatsDBRanked>("SELECT *, ROW_NUMBER() OVER (ORDER BY 'Kills' DESC) AS 'Rank' FROM HathPlayerStats ORDER BY @0 DESC LIMIT @1", m_Configuration["Stats:SortBy"], int.Parse(m_Configuration["Stats:Limit"]));
             if (stats is null) throw new UserFriendlyException("Stats couldnt be get!");
             string MessagePlaceholder = m_Configuration["Messages:Ranking"];
             StringBuilder Message = new StringBuilder();
             Message.AppendLine(m_Configuration["Messages:RankingHeader"]);
-            m_Logger.LogInformation(stats.ToJson().ToString());
             foreach (var stat in stats)
             {
                 Message.AppendLine(Smart.Format("\n" + MessagePlaceholder, new
@@ -68,7 +69,7 @@ namespace PlayerStats.Commands
                     Fish = stat.Fish,
                     Animals = stat.Animals,
                     Position = stat.Rank,
-                    Accuracy = "0.0",
+                    Accuracy = (stat.Headshots == 0 || stat.Kills == 0) ? "0.0" : ((double)stat.Headshots / stat.Kills * 100).ToString("F2")
                 }));
             }
 
