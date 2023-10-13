@@ -15,8 +15,23 @@ Messages:
     RankingHeader: "<b>[Top 5 players]</b>"
     Ranking: "#{Position} {PlayerName}: Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}" 
 Stats:
-    sortBy: "Kills"
+    SortBy: "Kills"
+    Limit: "5" 
 ```
+- `{PlayerName}`: Represents the player's name in various messages.
+- `{Position}`: Represents the player's position in the ranking.
+- `{Kills}`: Represents the number of kills a player has.
+- `{Deaths}`: Represents the number of deaths a player has.
+- `{Headshots}`: Represents the number of headshots a player has.
+- `{Accuracy}`: Represents the accuracy of a player.
+- `{Messages}`: Represents the number of messages sent by a player.
+- `{Zombies}`: Represents the number of zombies killed by a player.
+- `{MegaZombies}`: Represents the number of mega zombies killed by a player.
+- `{Fish}`: Represents the number of fish caught by a player.
+- `{Animals}`: Represents the number of animals killed by a player.
+- `{Harvests}`: Represents the number of harvests performed by a player.
+- `{Resources}`: Represents the number of resources gathered by a player.
+
 ### Plugin Commands:
 
 1. **/ranking**
