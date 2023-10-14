@@ -10,7 +10,7 @@
     <RootNamespace>HathPlayerStats</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateNugetPackage>true</GenerateNugetPackage>
-    <Product>Virtual Garage</Product>
+    <Product>Player Stats</Product>
     <PackageAuthor>Hath</PackageAuthor>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
