@@ -1,5 +1,5 @@
 # PlayerStats
-![Github All Releases](https://img.shields.io/github/downloads/HathHub/PlayerStats/total?label=Downloads) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/HathHub/PlayerStats?label=Version) [![Nuget](https://img.shields.io/nuget/v/Hath.PlayerStats)](https://www.nuget.org/packages/Hath.PlayerStats/)
+[![Nuget](https://img.shields.io/nuget/v/Hath.PlayerStats)](https://www.nuget.org/packages/Hath.PlayerStats/)
 [![Nuget](https://img.shields.io/nuget/dt/Hath.PlayerStats?label=nuget%20downloads)](https://www.nuget.org/packages/Hath.PlayerStats/)
 
 PlayerStats is a plugin for OpenMod. It enriches your server by saving and displaying player statistics.  a range of in-game performance metrics, and other pertinent data.
