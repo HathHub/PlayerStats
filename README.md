@@ -5,6 +5,22 @@
 PlayerStats is a plugin for OpenMod. It enriches your server by saving and displaying player statistics.  a range of in-game performance metrics, and other pertinent data.
 ### Downloading/Updating
 Run on console `openmod install Hath.PlayerStats` after [installing OpenMod](https://openmod.github.io/openmod-docs/userdoc/installation/unturned.html)
+### Discord Integration
+
+PlayerStats can send player statistics to Discord. Here's a preview:
+
+![Discord Integration](https://cdn.discordapp.com/attachments/764844464258416650/1165940410980511784/image.png?ex=6548ada0&is=653638a0&hm=c833d040b403901b35090ed7c3dd9a82ef1e2ef6f0be13a0810375d220dd254b&)
+
+To enable Discord integration, make sure to set the `Enabled` option to `true` in the configuration:
+
+```yaml
+Discord:
+  Enabled: true // <---
+  WebhookURL: "your-discord-webhook-url"
+  Embed:
+    Top: 5
+    SortBy: "Accuracy"
+```
 ### Configuration
 ```ruby
 # See https://github.com/HathHub/PlayerStats
@@ -78,4 +94,3 @@ Rewards:
 
 - `HathPlayerStats:commands.ranking`: Allows access to the /ranking command.
 - `HathPlayerStats:commands.stats`: Allows access to the /stats command.
-
