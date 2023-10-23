@@ -23,7 +23,7 @@ Discord:
 Rewards:
   - Variable: "Kills"
     Threshold: 100
-    Prizes:
+    Commands:
       - "give {PlayerID} 363"
       - "give {PlayerID} 17"
     Global: false
@@ -32,7 +32,7 @@ Rewards:
 
   - Variable: "Headshots"
     Threshold: 50
-    Prizes:
+    Commands:
       - "give {PlayerID} 363"
       - "give {PlayerID} 17"
     Global: true
