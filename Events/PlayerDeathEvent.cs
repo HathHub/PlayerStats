@@ -29,6 +29,7 @@ public class PlayerDeathEvent : IEventListener<UnturnedPlayerDeathEvent>
     {
         
         UnturnedUser? killer = m_UnturnedUserDirectory.FindUser(@event.Instigator);
+        killer.Player.Player.equipment.sendUpdateState()
         await UniTask.SwitchToThreadPool();
         await Plugin.Client!.ExecuteNonQueryAsync($"INSERT INTO HathPlayerStats (PlayerID, PlayerName, Deaths, LastUpdated) VALUES(@0, @1, 1, NOW()) ON DUPLICATE KEY UPDATE PlayerName = @1, Deaths = Deaths + 1, LastUpdated = NOW();", @event.Player.SteamId.ToString(), Encoding.UTF8.GetString(Encoding.GetEncoding("ISO-8859-1").GetBytes(@event.Player.Player.name)));
         if (@event.Instigator != @event.Player.SteamId && killer is not null)

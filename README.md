@@ -8,16 +8,48 @@ Run on console `openmod install Hath.PlayerStats` after [installing OpenMod](htt
 ### Configuration
 ```ruby
 # See https://github.com/HathHub/PlayerStats
+
 Database:
-    connectionString: "Server=localhost;Port=3306;Database=dbname;User=username;Password=password;"
+  ConnectionString: "Server=localhost;Port=3306;Database=dbname;User=username;Password=password;"
+  TableName: "HathPlayerStats"
+
 Messages:
-    Stats: "[Stats for {PlayerName} #{Position}]\n Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}\n Messages: {Messages} Zombies: {Zombies} Megas: {MegaZombies}\nFish: {Fish} Animals {Animals} Harvests: {Harvests} Resources {Resources}"
-    RankingHeader: "<b>[Top 5 players]</b>"
-    Ranking: "#{Position} {PlayerName}: Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}" 
+  Stats: "[Stats for {PlayerName} #{Position}]\n Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}\n Messages: {Messages} Zombies: {Zombies} Megas: {MegaZombies}\nFish: {Fish} Animals: {Animals} Harvests: {Harvests} Resources: {Resources}"
+  RankingHeader: "<b>[Top 5 players]</b>"
+  Ranking: "#{Position} {PlayerName}: Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}"
+
 Stats:
-    SortBy: "Kills"
-    Limit: "5" 
+  SortBy: "Kills"
+  Limit: "5"
+
+Discord:
+  Enabled: true    
+  WebhookURL: ""
+  Embed:
+    Top: 5
+    SortBy: "Accurracy"
+
+Rewards:
+  - Variable: "Kills"
+    Threshold: 100
+    Prizes:
+      - "give {PlayerID} 363"
+      - "give {PlayerID} 17"
+    Global: false
+    Messages:
+      - "Congratulations! You've reached 100 kills and earned a Maplestrike and Drum."
+
+  - Variable: "Headshots"
+    Threshold: 50
+    Prizes:
+      - "give {PlayerID} 363"
+      - "give {PlayerID} 17"
+    Global: true
+    Messages:
+      - "Sharpshooter Alert! {PlayerName} achieved 50 headshots and earned a Maplestrike. Everyone, cheer!"
+
 ```
+- `{PlayerID}`: Represents the player's SteamID64.
 - `{PlayerName}`: Represents the player's name in various messages.
 - `{Position}`: Represents the player's position in the ranking.
 - `{Kills}`: Represents the number of kills a player has.
