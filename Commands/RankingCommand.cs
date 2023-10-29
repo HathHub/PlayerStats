@@ -40,14 +40,10 @@ namespace PlayerStats.Commands
             m_UnturnedUserDirectory = unturnedUserDirectory;
             m_Logger = logger;
         }
-        public class StatsDBRanked : Stats
-        {
-            public int Rank { get; set; }
-        }
         protected override async Task OnExecuteAsync()
         {
             await UniTask.SwitchToThreadPool();
-            List<StatsDBRanked> stats = await Plugin.Client!.QueryAsync<StatsDBRanked>("SELECT *, ROW_NUMBER() OVER (ORDER BY 'Kills' DESC) AS 'Rank' FROM HathPlayerStats ORDER BY @0 DESC LIMIT @1", m_Configuration["Stats:SortBy"], int.Parse(m_Configuration["Stats:Limit"]));
+            List<StatsRanked> stats = await Plugin.Client!.QueryAsync<StatsRanked>("SELECT *, ROW_NUMBER() OVER (ORDER BY 'Kills' DESC) AS 'Rank' FROM HathPlayerStats ORDER BY @0 DESC LIMIT @1", m_Configuration["Stats:SortBy"], int.Parse(m_Configuration["Stats:Limit"]));
             if (stats is null) throw new UserFriendlyException("Stats couldnt be get!");
             string MessagePlaceholder = m_Configuration["Messages:Ranking"];
             StringBuilder Message = new StringBuilder();

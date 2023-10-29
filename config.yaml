@@ -15,21 +15,31 @@ Ranking:
 Discord:
   Enabled: true
   Interval: 60
-  WebhookURL: ""
-  Top: 6
-  SortBy: "Kills"
-  Embed:
-    Header: "asd"
-    Description: "asd"
-    Field:
-      Inline: true
-      Name: "🥇**#{Position}**"
-      Value: "👤 **[{PlayerName}](https://steamcommunity.com/profiles/{SteamID})**
-             > 🪦 **{Kills}** Kills
-             > ⚰️ **{Deaths}** Deaths
-             > 🔫 **{Kdr}** KDR
-             > 💀 **{Headshots}** Headshots
-             > 🎯** {Accuracy}% **Accuracy"
+  Embeds:
+    - MyKillsEmbed:
+      Top: 3
+      SortBy: "Kills"
+      Webhook: ""      
+      MessageID: 214124531553
+      Header: "asd"
+      Description: "asd"
+      Field:
+        Inline: true
+        Name: "🥇**#{Position}**"
+        Value: "👤 **[{PlayerName}](https://steamcommunity.com/profiles/{SteamID})**
+                > 🪦 **{Kills}** Kills"
+    - MyHeadshotsEmbed:
+      Top: 3
+      SortBy: "Headshots"
+      Webhook: ""      
+      MessageID: 214124531553
+      Header: "asd"
+      Description: "asd"
+      Field:
+        Inline: true
+        Name: "🥇**#{Position}**"
+        Value: "👤 **[{PlayerName}](https://steamcommunity.com/profiles/{SteamID})**
+                > 💀 **{Headshots}** Headshots"
 
 Rewards:
   - Variable: "Kills"
