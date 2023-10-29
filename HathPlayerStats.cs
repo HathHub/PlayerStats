@@ -41,39 +41,12 @@ namespace PlayerStats
         private readonly ILogger<HathPlayerStats> m_Logger;
         public MySQLEntityClient? Client;
         private readonly IUnturnedUserDirectory m_UnturnedUserDirectory;
-        public class StatsDB
-        {
-            [SQLPrimaryKey]
-            public ulong PlayerID;
-            public string PlayerName = string.Empty;
-            [SQLDefault(0)]
-            public int Zombies;
-            [SQLDefault(0)]
-            public int Messages;
-            [SQLDefault(0)]
-            public int Deaths;
-            [SQLDefault(0)]
-            public int Headshots;
-            [SQLDefault(0)]
-            public int Kills;
-            [SQLDefault(0)]
-            public int MegaZombies;
-            [SQLDefault(0)]
-            public int Resources;
-            [SQLDefault(0)]
-            public int Harvests;
-            [SQLDefault(0)]
-            public int Fish;
-            [SQLDefault(0)]
-            public int Animals;
-            public DateTime LastUpdated;
-        }
+
         public HathPlayerStats(
             IConfiguration configuration,
             IStringLocalizer stringLocalizer,
             ILogger<HathPlayerStats> logger,
             IUnturnedUserDirectory UnturnedUserDirectory,
-
             IServiceProvider serviceProvider
             ) : base(serviceProvider)
         {
@@ -85,11 +58,11 @@ namespace PlayerStats
         protected override async UniTask OnLoadAsync()
         {
             await UniTask.SwitchToThreadPool();
-            Client = new MySQLEntityClient(m_Configuration["Database:connectionString"], false);
+            Client = new MySQLEntityClient(m_Configuration["MySQL:ConnectionString"], false);
             if (Client.Connect(out var msg))
             {
+                await Client.CreateTableIfNotExistsAsync<Stats>(m_Configuration["MySQL:TableName"]);
                 m_Logger.LogInformation("Succesfully connected to database!");
-                await Client.CreateTableIfNotExistsAsync<StatsDB>(m_Configuration["Database:TableName"]);
             }
             else
             {

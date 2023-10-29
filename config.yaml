@@ -1,24 +1,35 @@
-# See https://github.com/HathHub/PlayerStats
-
-Database:
-  ConnectionString: "Server=localhost;Port=3306;Database=dbname;User=username;Password=password;"
-  TableName: "HathPlayerStats"
+﻿# See https://github.com/HathHub/PlayerStats
+MySQL:
+    ConnectionString: "Server=localhost;Port=3306;Database=dbname;User=username;Password=password;"
+    TableName: "HathPlayerStats"
 
 Messages:
   Stats: "[Stats for {PlayerName} #{Position}]\n Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}\n Messages: {Messages} Zombies: {Zombies} Megas: {MegaZombies}\nFish: {Fish} Animals: {Animals} Harvests: {Harvests} Resources: {Resources}"
   RankingHeader: "<b>[Top 5 players]</b>"
   Ranking: "#{Position} {PlayerName}: Kills: {Kills} Deaths: {Deaths} Headshots: {Headshots} Accuracy: {Accuracy}"
 
-Stats:
+Ranking:
   SortBy: "Kills"
   Limit: "5"
 
 Discord:
-  Enabled: true    
+  Enabled: true
+  Interval: 60
   WebhookURL: ""
+  Top: 6
+  SortBy: "Kills"
   Embed:
-    Top: 5
-    SortBy: "Accurracy"
+    Header: "asd"
+    Description: "asd"
+    Field:
+      Inline: true
+      Name: "🥇**#{Position}**"
+      Value: "👤 **[{PlayerName}](https://steamcommunity.com/profiles/{SteamID})**
+             > 🪦 **{Kills}** Kills
+             > ⚰️ **{Deaths}** Deaths
+             > 🔫 **{Kdr}** KDR
+             > 💀 **{Headshots}** Headshots
+             > 🎯** {Accuracy}% **Accuracy"
 
 Rewards:
   - Variable: "Kills"

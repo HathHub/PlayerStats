@@ -40,7 +40,7 @@ namespace PlayerStats.Commands
             m_UnturnedUserDirectory = unturnedUserDirectory;
             m_Logger = logger;
         }
-        public class StatsDBRanked : StatsDB
+        public class StatsDBRanked : Stats
         {
             public int Rank { get; set; }
         }
