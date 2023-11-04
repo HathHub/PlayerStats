@@ -114,7 +114,7 @@ Rewards:
 - `HathPlayerStats:commands.ranking`: Allows access to the /ranking command.
 - `HathPlayerStats:commands.stats`: Allows access to the /stats command.
 
-- ## NuGet Dependencies
+## NuGet Dependencies
 
 This plugin requires the following NuGet packages:
 
