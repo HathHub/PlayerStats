@@ -109,6 +109,15 @@ Rewards:
 2. **/stats [playername]**
    - Description: View detailed statistics for a player (optional playername parameter).
    - Permissions: `HathPlayerStats:commands.stats`
+## NuGet Dependencies
+
+This plugin requires the following NuGet packages:
+
+- [.NETFramework 4.6.1](https://www.nuget.org/packages/Microsoft.NETFramework.ReferenceAssemblies/)
+- [OpenMod.Unturned (>= 3.6.2)](https://www.nuget.org/packages/OpenMod.Unturned/)
+- [ShimmyMySherbet.DiscordWebhook (>= 2.0.0)](https://www.nuget.org/packages/ShimmyMySherbet.DiscordWebhook/)
+- [ShimmyMySherbet.MySQL.EF (>= 1.8.9)](https://www.nuget.org/packages/ShimmyMySherbet.MySQL.EF/)
+- [Ubiety.Dns.Core (>= 4.2.2)](https://www.nuget.org/packages/Ubiety.Dns.Core/)
 
 ## Permissions:
 
