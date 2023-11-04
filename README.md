@@ -109,7 +109,12 @@ Rewards:
 2. **/stats [playername]**
    - Description: View detailed statistics for a player (optional playername parameter).
    - Permissions: `HathPlayerStats:commands.stats`
-## NuGet Dependencies
+## Permissions:
+
+- `HathPlayerStats:commands.ranking`: Allows access to the /ranking command.
+- `HathPlayerStats:commands.stats`: Allows access to the /stats command.
+
+- ## NuGet Dependencies
 
 This plugin requires the following NuGet packages:
 
@@ -119,7 +124,3 @@ This plugin requires the following NuGet packages:
 - [ShimmyMySherbet.MySQL.EF (>= 1.8.9)](https://www.nuget.org/packages/ShimmyMySherbet.MySQL.EF/)
 - [Ubiety.Dns.Core (>= 4.2.2)](https://www.nuget.org/packages/Ubiety.Dns.Core/)
 
-## Permissions:
-
-- `HathPlayerStats:commands.ranking`: Allows access to the /ranking command.
-- `HathPlayerStats:commands.stats`: Allows access to the /stats command.
